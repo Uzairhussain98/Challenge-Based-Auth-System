@@ -34,15 +34,35 @@ function setValue(randomChallenge,input){
     let user =  users.findIndex(item => item.Username === input)
     users[user].salt = randomChallenge;
     console.log(users[user].salt)
+
 }
 
 
-function hashChecker(){
-    let randString = "mypassword"
+function hashChecker(hashInput,input, challenge, setIsAuthenticated){
+  let user =  users.findIndex(item => item.Username === input)
+  let userpass = users[user]?.password
 
-    const hash = crypto.createHash('sha256').update(randString).digest('hex');
+  if(challenge){
+  let concatpass = challenge+userpass;
+  console.log(concatpass)
 
-    console.log(hash)
+
+// console.log(userpass)
+    // let randString = "mypassword"
+    // let result = text1.concat(" ", text2);
+    const hash = crypto.createHash('sha256').update(concatpass).digest('hex');
+
+    if(hash == hashInput){
+      console.log("authenticated")
+      setIsAuthenticated(false)
+    }
+    console.log("input hash ",hashInput)
+    console.log("calculated hash,",hash)
+
+  }
+
+
+    // console.log(hash)
 
 }
 
