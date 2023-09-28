@@ -35,6 +35,9 @@ import { Auth, hashChecker, setValue } from './AuthServer';
               hashChecker();
 
             }
+            else{
+              alert("User not registered")
+            }
 
           }
 
@@ -47,6 +50,9 @@ import { Auth, hashChecker, setValue } from './AuthServer';
             //  setfinalRes(resHash);
            // console.log(finalRes);
             hashChecker(resHash, message,challengeNew , setIsAuthenticated);
+         
+          
+            
             // if(res){
             //   const randomChallenge = Challenge();
             //   setChallenge(randomChallenge)
@@ -65,10 +71,10 @@ import { Auth, hashChecker, setValue } from './AuthServer';
     return (
 
       <>
-      <div className='min-h-screen flex items-center justify-center  bg-blue-100'>
+      <div className='min-h-screen flex items-center justify-center bg-blue-100'>
 { isNotAuthenticated ?
 
-        <div className='bg-slate-400 w-[500px] flex flex-col space-y-8 items-center justify-center rounded-md'>
+        <div className='bg-slate-400 w-[500px] flex flex-col space-y-8 items-center justify-center rounded-md py-2'>
       <h3>Challenge Based Auth</h3>
       
       <div className='flex'>
@@ -88,7 +94,7 @@ import { Auth, hashChecker, setValue } from './AuthServer';
       <label placeholder='Response:'>Response:</label>
       <input type="response"onChange={handleChangeHash}/>
       </div>
-      <button className='bg-slate-200 w-28' type='submit' value='Submit Res' disabled={!resHash} onClick={()=> handleClickHash() } >Submit</button>  
+      <button className='bg-slate-200 w-28' type='submit' value='Submit Res' disabled={!resHash} onClick={()=> handleClickHash() } >Login</button>  
         </div>: <div></div>
 
 
@@ -99,7 +105,7 @@ import { Auth, hashChecker, setValue } from './AuthServer';
       {/* <h2>{updated}</h2> */}
       </div>: <div>
         <h2>User authenticated</h2> 
-        <button onClick={logout}>Log Out</button>
+        <button className='p-4 bg-slate-300 rounded-md' onClick={logout}>Log Out</button>
         </div>}
       </div>
       </>

@@ -60,6 +60,7 @@ function hashChecker(hashInput,input, challenge, setIsAuthenticated){
     console.log("calculated hash,",hash)
 
   }
+ 
 
 
     // console.log(hash)
