@@ -71,18 +71,18 @@ import { Auth, hashChecker, setValue } from './AuthServer';
     return (
 
       <>
-      <div className='min-h-screen flex items-center justify-center bg-blue-100'>
+      <div className='min-h-screen flex items-center justify-center bg-gradient-to-tr from-purple-300 to-blue-300' >
 { isNotAuthenticated ?
 
-        <div className='bg-slate-400 w-[500px] flex flex-col space-y-8 items-center justify-center rounded-md py-2'>
-      <h3>Challenge Based Auth</h3>
+        <div className='bg-gray-200 w-[500px] flex flex-col space-y-8 items-center justify-center rounded-lg py-8'>
+      <h3 className='font-bold'>Zero Knowledge Proof</h3>
       
-      <div className='flex'>
+      <div className='flex flex-col w-80'>
       <label placeholder='Username'>Username:</label>
-      <input type="username"onChange={handleChange}
+      <input className='bg-white rounded-md h-8' type="username"onChange={handleChange}
         value={message}/>
         </div>
-      <button className='bg-slate-200 w-28' type='submit' value='submit' disabled={!message} onClick={()=> handleClick() } >Submit</button>
+      <button className='bg-blue-200 p-2 w-28' type='submit' value='submit' disabled={!message} onClick={()=> handleClick() } >Submit</button>
       
       <div className='flex space-x-2'>
         <h2>Challenge:  </h2>
@@ -90,11 +90,11 @@ import { Auth, hashChecker, setValue } from './AuthServer';
       </div>
       { challengeNew ? 
       <div className='flex flex-col space-y-8 items-center justify-center'>
-        <div>
+        <div className='flex flex-col w-80'>
       <label placeholder='Response:'>Response:</label>
-      <input type="response"onChange={handleChangeHash}/>
+      <input className='bg-white rounded-md h-8' type="response"onChange={handleChangeHash}/>
       </div>
-      <button className='bg-slate-200 w-28' type='submit' value='Submit Res' disabled={!resHash} onClick={()=> handleClickHash() } >Login</button>  
+      <button className='bg-blue-200 p-2 w-28' type='submit' value='Submit Res' disabled={!resHash} onClick={()=> handleClickHash() } >Login</button>  
         </div>: <div></div>
 
 

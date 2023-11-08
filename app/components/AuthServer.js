@@ -16,6 +16,11 @@ const users = [
       Username:"Martin",
       password:"secretpass",
       salt: "",
+    },
+    {
+      Username:"ezra",
+      password:"helloworld",
+      salt: "",
     }
     
     ]
@@ -56,9 +61,13 @@ function hashChecker(hashInput,input, challenge, setIsAuthenticated){
       console.log("authenticated")
       setIsAuthenticated(false)
     }
+    else{
+      alert("Wrong")
+    }
+
     console.log("input hash ",hashInput)
     console.log("calculated hash,",hash)
-
+   
   }
  
 
